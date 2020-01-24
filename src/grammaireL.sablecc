@@ -1,19 +1,44 @@
-Package sc;
+Package l;
 
 Helpers
-
-lettre = [['a' .. 'z'] + ['A' .. 'Z']];
+  lettre = [['a' .. 'z'] + ['A' .. 'Z']]
+  chiffre = ['0' .. '9']+;
+  alpha = [lettre + ['_' + '$']];
+  alphanum = [ lettre + chiffre];
 
 Tokens
+  l_par = '(';
+  r_par = ')';
+  l_cb = '{';
+  r_cb = '}';
+  crochet_ouvrant = '[';
+  crochet_fermant = ']';
+  
+  and = '&';
+  or = '|';
+  not = '!';
+  equal = '=';
+  plus = '+';
+  minus = '-';
+  plus_petit = '<';
+  fois = '*';
+  divise = '/';
+  virgule = ',';
+  
+  semicolon = ';';
+  nombre = chiffre+;
+  identifier = ('$' | '_' | lettre) [chiffre + lettre + '$' + '_']*;
 
-espaces = (' ' | 13 | 10)+;
-commentaire= '#' [[0 .. 0xffff] - [10 + 13]]* (10 | 13 | 10 13);
+  si = 'si';
+  alors = 'alors';
+  retour = 'retour';
+
+  type = 'entier';
+
+  lire = 'lire';
+  ecrire = 'ecrire';
+
+  blank = (''| 13 | 10)+;
 
 Ignored Tokens
-
-espaces, commentaire;
-
-Productions
-
-programme = optdecvar listedecfonc ;
-
+  blank;
